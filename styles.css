@@ -1,0 +1,58 @@
+/* Bootstrap supplies the grid, cards, forms and buttons. These rules match the reference's green-and-white style. */
+:root { --green: #198754; --ink: #24372e; --muted: #59695f; }
+body { color: var(--ink); background: #fff; font-size: 16px; }
+[hidden] { display: none !important; }
+.page-width { max-width: 1120px; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 30px; }
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 700; text-align: center; color: #17271e; font-size: clamp(1.7rem, 4vw, 2.4rem); margin-bottom: 25px; }
+.home-nav { display: flex; flex-wrap: wrap; gap: 8px; padding: 7px 0; border-top: 1px solid #d4ded8; border-bottom: 1px solid #d4ded8; }
+.home-nav .nav-link { padding: 9px 14px; color: #52655a; }
+.home-nav .active { color: var(--green); font-weight: 600; }
+.intro-section { padding: 54px 12px 40px; }
+.intro-copy { padding-right: 32px; }
+.eyebrow { color: var(--green); font-size: .72rem; font-weight: 700; letter-spacing: .13em; margin-bottom: 16px; }
+h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.3rem); margin-bottom: 22px; }
+.intro-copy p:not(.eyebrow) { color: var(--muted); line-height: 1.8; }
+.planet-image { max-height: 330px; }
+.assessment { background: #f3f8f4; border-top: 3px solid var(--green); padding: 32px 24px; }
+.assessment h4 { font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; font-weight: 700; }
+.assessment > p { max-width: 740px; margin: 15px auto 22px; line-height: 1.7; color: var(--muted); }
+.calculate-link { padding: 10px 32px; }
+.page-footer { text-align: center; color: var(--muted); margin-top: 34px; padding-bottom: 22px; }
+.page-footer p { margin-bottom: 5px; }
+.calculator-nav { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #d4ded8; padding-bottom: 7px; }
+.calculator-tabs { flex: 1; display: flex; flex-wrap: wrap; gap: 2px; }
+.calculator-tabs .nav-link { padding: 9px 11px; color: #52655a; border: 0; border-bottom: 3px solid transparent; border-radius: 0; background: none; }
+.calculator-tabs .nav-link[aria-selected="true"] { color: #17271e; border-bottom-color: var(--green); font-weight: 600; }
+.calculator-card { max-width: 550px; margin: 44px auto 0; border-color: #cdd9d1; border-radius: 4px; }
+.calculator-card .card-header { background: var(--green); color: white; text-align: center; padding: 13px 18px; }
+.calculator-card .card-header h2 { font-family: inherit; font-size: 1rem; font-weight: 500; margin: 0; }
+.calculator-card .card-body { padding: 26px 24px; min-height: 240px; }
+.calculator-card .card-footer { background: #f7f8f7; padding: 12px; text-align: center; }
+.form-row { margin-bottom: 18px; align-items: center; }
+.form-row:last-child { margin-bottom: 0; }
+.form-label { margin-bottom: 0; }
+.step-caption { font-size: .83rem; color: var(--muted); margin-bottom: 22px; }
+.privacy-note { text-align: center; max-width: 550px; margin: 16px auto; font-size: .8rem; color: var(--muted); }
+.result-number { font-size: 2.5rem; font-weight: 700; color: var(--green); line-height: 1.2; }
+.result-summary { text-align: center; background: #f3f8f4; padding: 20px 12px; margin-bottom: 22px; }
+.result-table { font-size: .9rem; }
+.method-note { font-size: .85rem; color: var(--muted); }
+.method-note summary { cursor: pointer; color: #285a40; padding: 8px 0; }
+.method-note ul { padding-left: 19px; }
+:focus-visible { outline: 3px solid #0b5ed7 !important; outline-offset: 3px; }
+.skip-link { position: absolute; left: 15px; top: -70px; background: white; padding: 10px; z-index: 10; }
+.skip-link:focus { top: 10px; }
+@media (max-width: 575.98px) {
+  .page-width { padding-left: 16px; padding-right: 16px; }
+  .site-header { padding-top: 22px; }
+  .intro-section { padding: 32px 0 22px; }
+  .intro-copy { padding-right: 12px; }
+  .planet-image { max-height: 230px; }
+  .assessment { padding: 25px 16px; }
+  .calculator-nav { align-items: flex-start; gap: 4px; }
+  .calculator-tabs .nav-link { font-size: .8rem; padding: 8px; }
+  .calculator-card { margin-top: 25px; }
+  .calculator-card .card-body { padding: 22px 18px; }
+  .form-label { margin-bottom: 7px; }
+}

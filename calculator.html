@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A step-by-step educational carbon footprint calculator.">
+  <title>Calculate | Carbon Footprint Calculator</title>
+  <link rel="icon" href="assets/earth.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="container-fluid page-width site-header">
+    <h1>Carbon Footprint Calculator</h1>
+    <nav class="calculator-nav" aria-label="Calculator navigation">
+      <div class="calculator-tabs" role="tablist" aria-label="Calculator sections">
+        <button type="button" class="nav-link" id="tab-0" role="tab" aria-controls="panel-0" aria-selected="true" tabindex="0">General</button>
+        <button type="button" class="nav-link" id="tab-1" role="tab" aria-controls="panel-1" aria-selected="false" tabindex="-1">Home</button>
+        <button type="button" class="nav-link" id="tab-2" role="tab" aria-controls="panel-2" aria-selected="false" tabindex="-1">Travel</button>
+        <button type="button" class="nav-link" id="tab-3" role="tab" aria-controls="panel-3" aria-selected="false" tabindex="-1">Food</button>
+        <button type="button" class="nav-link" id="tab-4" role="tab" aria-controls="panel-4" aria-selected="false" tabindex="-1">Electronic usage</button>
+        <button type="button" class="nav-link" id="tab-5" role="tab" aria-controls="panel-5" aria-selected="false" tabindex="-1">Shopping</button>
+        <button type="button" class="nav-link" id="tab-6" role="tab" aria-controls="panel-6" aria-selected="false" tabindex="-1">Result</button>
+      </div>
+      <a class="btn btn-success btn-sm" href="index.html">Home</a>
+    </nav>
+  </header>
+  <main id="main" class="container-fluid page-width">
+    <noscript><p class="alert alert-warning mt-4">Please enable JavaScript to use the calculator. The <a href="index.html">home page</a> works without it.</p></noscript>
+    <!-- One Bootstrap card holds the seven panels shown by the navigation tabs. -->
+    <form id="footprint-form" class="card calculator-card" novalidate>
+      <div class="card-header"><h2 id="card-title">Fill the form below</h2></div>
+      <div class="card-body">
+          <section id="panel-0" role="tabpanel" aria-labelledby="tab-0" tabindex="0" >
+            <p class="step-caption">Step 1 of 6 · General information</p>
+            <div class="row form-row"><label class="col-sm-6 form-label" for="name">Name <span class="small text-secondary">(optional)</span></label>
+              <div class="col-sm-6"><input class="form-control" id="name" name="name" maxlength="50" autocomplete="given-name"></div></div>
+            <div class="row form-row">
+              <label class="col-sm-6 form-label" for="age">Age <span class="small text-secondary">(optional)</span></label>
+              <div class="col-sm-6"><input class="form-control" type="number" id="age" name="age" min="1" max="120" step="1" value=""  aria-describedby="age-help">
+                <div class="form-text" id="age-help">Years</div></div>
+            </div>
+            <div class="row form-row"><label class="col-sm-6 form-label" for="country">Country</label>
+              <div class="col-sm-6"><select class="form-select" id="country" name="country">
+                <option>Saudi Arabia</option><option>United Arab Emirates</option><option>Qatar</option><option>Kuwait</option><option>Bahrain</option><option>Oman</option><option>United States</option><option>United Kingdom</option><option>Other</option>
+              </select></div></div>
+          </section>
+          <section id="panel-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0" hidden>
+            <p class="step-caption">Step 2 of 6 · Energy at home</p><div class="row form-row">
+              <label class="col-sm-6 form-label" for="electricity">Household electricity</label>
+              <div class="col-sm-6"><input class="form-control" type="number" id="electricity" name="electricity" min="0" max="100000" step="any" value="0" required aria-describedby="electricity-help">
+                <div class="form-text" id="electricity-help">kWh per month · from your electricity bill</div></div>
+            </div><div class="row form-row">
+              <label class="col-sm-6 form-label" for="household">People in your home</label>
+              <div class="col-sm-6"><input class="form-control" type="number" id="household" name="household" min="1" max="50" step="1" value="1" required aria-describedby="household-help">
+                <div class="form-text" id="household-help">Your household total is shared equally.</div></div>
+            </div>
+          </section>
+          <section id="panel-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
+            <p class="step-caption">Step 3 of 6 · Your journeys</p><div class="row form-row">
+              <label class="col-sm-6 form-label" for="car">Car travel</label>
+              <div class="col-sm-6"><input class="form-control" type="number" id="car" name="car" min="0" max="10000" step="any" value="0" required aria-describedby="car-help">
+                <div class="form-text" id="car-help">Kilometres per week · your travel only</div></div>
+            </div><div class="row form-row">
+              <label class="col-sm-6 form-label" for="passengers">People sharing the car</label>
+              <div class="col-sm-6"><input class="form-control" type="number" id="passengers" name="passengers" min="1" max="10" step="1" value="1" required aria-describedby="passengers-help">
+                <div class="form-text" id="passengers-help">Include yourself.</div></div>
+            </div><div class="row form-row">
+              <label class="col-sm-6 form-label" for="flight">Air travel</label>
+              <div class="col-sm-6"><input class="form-control" type="number" id="flight" name="flight" min="0" max="2000" step="any" value="0" required aria-describedby="flight-help">
+                <div class="form-text" id="flight-help">Total flight hours per year</div></div>
+            </div>
+          </section>
+          <section id="panel-3" role="tabpanel" aria-labelledby="tab-3" tabindex="0" hidden>
+            <p class="step-caption">Step 4 of 6 · Your usual food choices</p>
+            <div class="row form-row"><label class="col-sm-6 form-label" for="diet">Diet</label>
+              <div class="col-sm-6"><select class="form-select" id="diet" name="diet">
+                <option value="plant">Plant-based</option><option value="vegetarian">Vegetarian</option><option value="mixed" selected>Mixed diet</option><option value="meat">Meat-heavy diet</option>
+              </select></div></div>
+            <p class="small text-secondary mt-4">Choose the description closest to your usual meals. This classroom model uses a fixed daily estimate for each option.</p>
+          </section>
+          <section id="panel-4" role="tabpanel" aria-labelledby="tab-4" tabindex="0" hidden>
+            <p class="step-caption">Step 5 of 6 · Electronic usage</p><div class="row form-row">
+              <label class="col-sm-6 form-label" for="devices">New electronic devices</label>
+              <div class="col-sm-6"><input class="form-control" type="number" id="devices" name="devices" min="0" max="100" step="1" value="0" required aria-describedby="devices-help">
+                <div class="form-text" id="devices-help">Devices bought for yourself per year</div></div>
+            </div><p class="small text-secondary mt-4">This category estimates the impact of making new devices. Electricity used to charge or run them is already included in Home, so it is not counted twice.</p>
+          </section>
+          <section id="panel-5" role="tabpanel" aria-labelledby="tab-5" tabindex="0" hidden>
+            <p class="step-caption">Step 6 of 6 · What you buy</p><div class="row form-row">
+              <label class="col-sm-6 form-label" for="clothes">New clothing items</label>
+              <div class="col-sm-6"><input class="form-control" type="number" id="clothes" name="clothes" min="0" max="10000" step="1" value="0" required aria-describedby="clothes-help">
+                <div class="form-text" id="clothes-help">Items bought for yourself per year</div></div>
+            </div><p class="small text-secondary mt-4">Count new items only. Keeping clothes for longer, repairing them, and choosing second-hand items can reduce demand for new products.</p>
+          </section>
+          <section id="panel-6" role="tabpanel" aria-labelledby="tab-6" tabindex="0" hidden>
+            <div aria-live="polite" aria-atomic="true">
+              <p id="result-greeting" class="text-center">Your estimated annual footprint</p>
+              <div class="result-summary"><div id="total" class="result-number">0.00</div><p class="mb-0">tonnes CO₂e per year</p></div>
+            </div>
+            <table class="table result-table"><caption>Estimated impact of the activities you entered (kg CO₂e per year).</caption>
+              <thead><tr><th scope="col">Category</th><th scope="col" class="text-end">kg CO₂e / year</th></tr></thead>
+              <tbody id="breakdown"></tbody><tfoot><tr><th scope="row">Total</th><td id="total-kg" class="text-end fw-bold"></td></tr></tfoot>
+            </table>
+            <p id="tip" class="small"></p>
+            <p class="small text-secondary">CO₂e means carbon dioxide equivalent: a way of expressing the warming impact of different greenhouse gases in one unit.</p>
+            <details class="method-note"><summary>How this classroom estimate works</summary>
+              <p>These are illustrative assumptions for a school programming project, not official emissions factors or a complete carbon inventory. Actual impact varies by country, product, fuel, and lifestyle. Country and age do not change the estimate.</p>
+              <ul><li>Home: monthly kWh × 12 × 0.5 ÷ household size.</li>
+              <li>Travel: weekly car km × 52 × 0.2 ÷ passengers, plus annual flight hours × 90.</li>
+              <li>Food: 2, 3, 5, or 7 kg per day for plant-based, vegetarian, mixed, or meat-heavy diets, multiplied by 365.</li>
+              <li>Electronics: new devices per year × 70 kg.</li><li>Shopping: new clothing items per year × 10 kg.</li></ul>
+              <p>All category results are in kg CO₂e per year. Divide the sum by 1,000 to display tonnes. The model excludes activities such as public transport, home heating fuels, and public services.</p>
+            </details>
+          </section>
+      </div>
+      <div class="card-footer">
+        <button id="prev" class="btn btn-success btn-sm" type="button" disabled>Prev</button>
+        <button id="next" class="btn btn-success btn-sm ms-2" type="submit">Next</button>
+        <button id="restart" class="btn btn-outline-success btn-sm ms-2" type="button" hidden>Start again</button>
+      </div>
+    </form>
+    <p class="privacy-note">Your answers stay in this page and are not saved or sent anywhere.<br>Educational estimate using simplified assumptions.</p>
+  </main>
+  <footer class="page-footer container-fluid page-width"><p class="small">Small changes begin with awareness.</p></footer>
+</body>
+</html>
