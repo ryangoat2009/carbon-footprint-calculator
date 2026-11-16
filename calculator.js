@@ -1,7 +1,6 @@
 "use strict";
 
-// All factors below are illustrative classroom assumptions, NOT official measurements.
-// Every category is converted to kg CO2e per year before being added.
+// Simplified estimates in kg CO2e per year.
 function calculateFootprint(values) {
   const dailyFood = { plant: 2, vegetarian: 3, mixed: 5, meat: 7 };
   return {
@@ -35,8 +34,6 @@ function showStep(index, moveFocus = true) {
   document.getElementById("card-title").textContent = index === 6 ? "Your result" : "Fill the form below";
   if (moveFocus) panels[index].focus({ preventScroll: true });
 }
-
-// Show an invalid field's panel BEFORE asking the browser to focus the field.
 function validateStep(index) {
   const inputs = panels[index].querySelectorAll("input, select");
   for (const input of inputs) {
@@ -59,7 +56,6 @@ function showResult() {
   document.getElementById("total").textContent = (total / 1000).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   document.getElementById("total-kg").textContent = total.toLocaleString("en", { maximumFractionDigits: 1 });
   const name = values.name.trim();
-  // textContent keeps user-supplied names as text, never executable HTML.
   document.getElementById("result-greeting").textContent = name ? `${name}, here is your estimated annual footprint.` : "Your estimated annual footprint";
   const body = document.getElementById("breakdown");
   body.replaceChildren();
@@ -88,7 +84,6 @@ function showResult() {
 
 tabs.forEach((tab, index) => {
   tab.addEventListener("click", () => index === 6 ? showResult() : showStep(index));
-  // Arrow keys move focus; Enter or Space activates the focused tab.
   tab.addEventListener("keydown", event => {
     let target;
     if (event.key === "ArrowRight") target = (index + 1) % tabs.length;
